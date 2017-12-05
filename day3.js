@@ -1,20 +1,20 @@
 function tier(n) {
-    return (function nTier(n, t) {
-        if (n <= Math.pow((t*2 + 1), 2)) {
-            return t;
-        } else {
-            return nTier(n, t+1);
-        }
-    })(n, 0);
+  return (function nTier(n, t) {
+    if (n <= Math.pow((t*2 + 1), 2)) {
+      return t;
+    } else {
+      return nTier(n, t+1);
+    }
+  })(n, 0);
 }
 
 function offset(n) {
-    var t = tier(n);
-    return Math.abs(((n - 1) % (2*t)) - t);
+  var t = tier(n);
+  return Math.abs(((n - 1) % (2*t)) - t);
 }
 
 function distance(n) {
-    return tier(n) + offset(n);
+  return tier(n) + offset(n);
 }
 
 console.log(distance(1) == 0);
